@@ -8,10 +8,15 @@ app.use(cors());
 
 app.get("/search/movie", function (req, res) {
   const searchData = req.query;
+  const title = searchData.title;
+  const display = searchData.display;
+  const genre = searchData.genre;
+  const country = searchData.country;
   console.log(searchData);
   const api_url = `https://openapi.naver.com/v1/search/movie?query=${encodeURI(
-    searchData.title
-  )}&display=${searchData.display}`;
+    title
+  )}&display=${display}`;
+
   const request = require("request");
   const options = {
     url: api_url,

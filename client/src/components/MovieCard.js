@@ -14,9 +14,18 @@ function MovieCard(props) {
     <div className="moviecard-wrap">
       <div className="movie-imgbox">
         <img src={image} alt={title} />
-        <h3 className="movie-title">
-          {title}({pubDate})<p className="subtitle">{subtitle}</p>
-        </h3>
+        <div className="title-box">
+          <h3
+            className="movie-title"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+
+          <p
+            className="subtitle"
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
+          <p className="pubDate">({pubDate})</p>
+        </div>
       </div>
       <p className="director">
         감독 : <b>{director === "" ? "정보없음" : director}</b>
